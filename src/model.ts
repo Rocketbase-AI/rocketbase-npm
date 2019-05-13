@@ -14,7 +14,7 @@ export default class Model {
       type: 'image/jpg',
       name: 'input'
     });
-    formData.append('visualize', api_visualize.toString());
+    formData.append('visualize', apiVisualize.toString());
     const apiResponse = fetch(apiUrl, {
       method: "POST",
       body: formData,
