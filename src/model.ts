@@ -8,17 +8,26 @@ export default class Model {
   public async run(img: string, api_visualize: boolean = true) {
     const apiUrl = this.rocket.apiUrl;
     const formData = new FormData();
-    formData.append("files", img);
-    formData.append("visualize", api_visualize.toString());
-    // const reqBody = { visualize: api_visualize };
-    const apiResponse = await fetch(apiUrl, {
-      body: formData,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
+    formData.append('input', {
+      // tslint:disable-next-line
+      uri: img,
+      type: 'image/jpg',
+      name: 'input'
     });
-    const response = await apiResponse.json();
-    return response;
+    formData.append('visualize', api_visualize.toString());
+    const apiResponse = fetch(apiUrl, {
+      method: "POST",
+      body: formData,
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((responseJson) => {
+      return responseJson;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+    return apiResponse;
   }
 }
