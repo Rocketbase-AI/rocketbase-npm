@@ -5,7 +5,7 @@ export default class Model {
   public constructor(rocket: any) {
     this.rocket = rocket;
   }
-  public async run(img: string, api_visualize: boolean = true) {
+  public async run(img: string, apiVisualize: boolean = true) {
     const apiUrl = this.rocket.apiUrl;
     const formData = new FormData();
     formData.append('input', {

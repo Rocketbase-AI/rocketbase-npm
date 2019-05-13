@@ -22,6 +22,7 @@ export default class Rocket {
     });
     const availableRockets: any[] = await apiResponse.json();
     if (!availableRockets.length) {
+      // tslint:disable-next-line:no-console
       console.error(`No rockets found with the name ${trimmedSlug}`);
       return;
     }
@@ -30,6 +31,7 @@ export default class Rocket {
     if (rocket.apiUrl) {
       return new Model(rocket);
     } else {
+      // tslint:disable-next-line:no-console
       console.error(`Given rocket does not yet support API inference`);
       return;
     }
