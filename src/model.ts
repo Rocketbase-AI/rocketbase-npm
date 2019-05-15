@@ -9,7 +9,7 @@ export default class Model {
     const apiUrl = this.rocket.apiUrl;
     const formData = new FormData();
     formData.append('input', {
-      // tslint:disable-next-line
+      // @ts-ignore
       uri: img,
       type: 'image/jpg',
       name: 'input'

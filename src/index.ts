@@ -6,6 +6,7 @@ export default class Rocket {
   private rocketApiUrl: string;
   public constructor(clientToken: string = "") {
     this.clientToken = clientToken;
+    console.log(this.clientToken);
     this.rocketApiUrl = "https://europe-west1-rockethub.cloudfunctions.net/getAvailableModels";
   }
 
